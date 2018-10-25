@@ -20,10 +20,6 @@ public class WelcomeMessage extends DomainEntity {
 
 	@NotBlank
 	public String getContent() {
-		if (this.languageCode.equals("English"))
-			this.content = "Welcome to Acme Handy Worker! Price, quality, and trust in a single place";
-		else
-			this.content = "¡Bienvenidos a Acme Handy Worker! Precio, calidad y confianza en el mismo sitio";
 		return this.content;
 	}
 
