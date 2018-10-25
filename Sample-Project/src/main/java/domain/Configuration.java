@@ -1,3 +1,6 @@
+
+package domain;
+
 import java.util.List;
 
 import javax.validation.constraints.Max;

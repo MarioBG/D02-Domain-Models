@@ -2,14 +2,16 @@
 package domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.Pattern;
 
 public class Application extends DomainEntity {
 
-	private Date	applicationMoment;
-	private String	status;
-	private float	offeredPrice;
+	private Date			applicationMoment;
+	private String			status;
+	private float			offeredPrice;
+	private List<Comment>	comment;
 
 
 	public Date getApplicationMoment() {
@@ -35,6 +37,14 @@ public class Application extends DomainEntity {
 
 	public void setOfferedPrice(final float offeredPrice) {
 		this.offeredPrice = offeredPrice;
+	}
+
+	public List<Comment> getComment() {
+		return this.comment;
+	}
+
+	public void setComment(final List<Comment> comment) {
+		this.comment = comment;
 	}
 
 }

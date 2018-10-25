@@ -1,19 +1,22 @@
 
 package domain;
 
+import java.util.List;
+
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Actor extends DomainEntity {
 
-	private String	name;
-	private String	middleName;
-	private String	surname;
-	private String	email;
-	private String	photo;
-	private String	phoneNumber;
-	private String	address;
+	private String					name;
+	private String					middleName;
+	private String					surname;
+	private String					email;
+	private String					photo;
+	private String					phoneNumber;
+	private String					address;
+	private List<SocialIdentity>	socialIdentity;
 
 
 	@NotBlank
@@ -73,6 +76,14 @@ public class Actor extends DomainEntity {
 
 	public void setAddress(final String address) {
 		this.address = address;
+	}
+
+	public List<SocialIdentity> getSocialIdentity() {
+		return this.socialIdentity;
+	}
+
+	public void setSocialIdentity(final List<SocialIdentity> socialIdentity) {
+		this.socialIdentity = socialIdentity;
 	}
 
 }
