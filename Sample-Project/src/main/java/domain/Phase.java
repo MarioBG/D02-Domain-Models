@@ -3,7 +3,7 @@ package domain;
 
 import java.util.Date;
 
-public class Phase {
+public class Phase extends DomainEntity {
 
 	private String	title;
 	private String	description;

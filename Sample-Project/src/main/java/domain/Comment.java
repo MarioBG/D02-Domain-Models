@@ -1,7 +1,7 @@
 
 package domain;
 
-public class Comment {
+public class Comment extends DomainEntity {
 
 	private String	coment;
 

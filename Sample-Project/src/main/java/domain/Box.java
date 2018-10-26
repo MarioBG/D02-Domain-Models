@@ -3,7 +3,7 @@ package domain;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class Box {
+public class Box extends DomainEntity {
 
 	private String	name;
 	private Boolean	predefined;

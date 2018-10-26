@@ -3,7 +3,7 @@ package domain;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class Category {
+public class Category extends DomainEntity {
 
 	private String	name;
 

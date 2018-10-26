@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class Warranty {
+public class Warranty extends DomainEntity {
 
 	private String	title;
 	private String	terms;
