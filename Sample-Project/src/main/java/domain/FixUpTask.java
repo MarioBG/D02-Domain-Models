@@ -9,12 +9,14 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class FixUpTask extends DomainEntity {
 
-	private String	ticker;
-	private Date	publicationMoment;
-	private String	description;
-	private String	address;
-	private float	maxPrice;
-	private Double	maxTimeToCarryOut;
+	private String		ticker;
+	private Date		publicationMoment;
+	private String		description;
+	private String		address;
+	private float		maxPrice;
+	private Double		maxTimeToCarryOut;
+	private Category	category;
+	private Warranty	warranty;
 
 
 	@NotBlank
@@ -67,6 +69,22 @@ public class FixUpTask extends DomainEntity {
 
 	public void setMaxTimeToCarryOut(final Double maxTimeToCarryOut) {
 		this.maxTimeToCarryOut = maxTimeToCarryOut;
+	}
+
+	public Category getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(final Category category) {
+		this.category = category;
+	}
+
+	public Warranty getWarranty() {
+		return this.warranty;
+	}
+
+	public void setWarranty(final Warranty warranty) {
+		this.warranty = warranty;
 	}
 
 }

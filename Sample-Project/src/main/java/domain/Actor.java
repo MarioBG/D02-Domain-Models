@@ -1,7 +1,7 @@
 
 package domain;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.validation.constraints.Pattern;
 
@@ -9,14 +9,15 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class Actor extends DomainEntity {
 
-	private String					name;
-	private String					middleName;
-	private String					surname;
-	private String					email;
-	private String					photo;
-	private String					phoneNumber;
-	private String					address;
-	private List<SocialIdentity>	socialIdentity;
+	private String						name;
+	private String						middleName;
+	private String						surname;
+	private String						email;
+	private String						photo;
+	private String						phoneNumber;
+	private String						address;
+	private Collection<SocialIdentity>	socialIdentity;
+	private Collection<Box>				boxes;
 
 
 	@NotBlank
@@ -78,12 +79,20 @@ public class Actor extends DomainEntity {
 		this.address = address;
 	}
 
-	public List<SocialIdentity> getSocialIdentity() {
+	public Collection<SocialIdentity> getSocialIdentity() {
 		return this.socialIdentity;
 	}
 
-	public void setSocialIdentity(final List<SocialIdentity> socialIdentity) {
+	public void setSocialIdentity(final Collection<SocialIdentity> socialIdentity) {
 		this.socialIdentity = socialIdentity;
+	}
+
+	public Collection<Box> getBoxes() {
+		return this.boxes;
+	}
+
+	public void setBoxes(final Collection<Box> boxes) {
+		this.boxes = boxes;
 	}
 
 }

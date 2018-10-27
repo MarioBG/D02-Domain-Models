@@ -1,17 +1,19 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.constraints.Pattern;
 
 public class Application extends DomainEntity {
 
-	private Date			applicationMoment;
-	private String			status;
-	private float			offeredPrice;
-	private List<Comment>	comment;
+	private Date				applicationMoment;
+	private String				status;
+	private float				offeredPrice;
+	private Collection<Comment>	comment;
+	private WorkPlan			workPlan;
+	private CreditCard			creditCard;
 
 
 	public Date getApplicationMoment() {
@@ -39,12 +41,28 @@ public class Application extends DomainEntity {
 		this.offeredPrice = offeredPrice;
 	}
 
-	public List<Comment> getComment() {
+	public Collection<Comment> getComment() {
 		return this.comment;
 	}
 
-	public void setComment(final List<Comment> comment) {
+	public void setComment(final Collection<Comment> comment) {
 		this.comment = comment;
+	}
+
+	public WorkPlan getWorkPlan() {
+		return this.workPlan;
+	}
+
+	public void setWorkPlan(final WorkPlan workPlan) {
+		this.workPlan = workPlan;
+	}
+
+	public CreditCard getCreditCard() {
+		return this.creditCard;
+	}
+
+	public void setCreditCard(final CreditCard creditCard) {
+		this.creditCard = creditCard;
 	}
 
 }

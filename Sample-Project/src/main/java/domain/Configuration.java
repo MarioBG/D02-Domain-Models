@@ -1,7 +1,7 @@
 
 package domain;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -11,15 +11,15 @@ import org.hibernate.validator.constraints.URL;
 
 public class Configuration extends DomainEntity {
 
-	private String					bannerURL;
-	private List<String>			spamWords;
-	private double					VATTax;
-	private String					countryCode;
-	private Double					finderCached;
-	private Integer					finderReturn;
-	private String					systemName;
-	private List<String>			defaultCreditCards;
-	private List<WelcomeMessage>	welcomeMessage;
+	private String						bannerURL;
+	private Collection<String>			spamWords;
+	private double						VATTax;
+	private String						countryCode;
+	private Double						finderCached;
+	private Integer						finderReturn;
+	private String						systemName;
+	private Collection<String>			defaultCreditCards;
+	private Collection<WelcomeMessage>	welcomeMessage;
 
 
 	@URL
@@ -31,11 +31,11 @@ public class Configuration extends DomainEntity {
 		this.bannerURL = bannerURL;
 	}
 
-	public List<String> getSpamWords() {
+	public Collection<String> getSpamWords() {
 		return this.spamWords;
 	}
 
-	public void setSpamWords(final List<String> spamWords) {
+	public void setSpamWords(final Collection<String> spamWords) {
 		this.spamWords = spamWords;
 	}
 
@@ -83,19 +83,19 @@ public class Configuration extends DomainEntity {
 		this.systemName = systemName;
 	}
 
-	public List<String> getDefaultCreditCards() {
+	public Collection<String> getDefaultCreditCards() {
 		return this.defaultCreditCards;
 	}
 
-	public void setDefaultCreditCards(final List<String> defaultCreditCards) {
+	public void setDefaultCreditCards(final Collection<String> defaultCreditCards) {
 		this.defaultCreditCards = defaultCreditCards;
 	}
 
-	public List<WelcomeMessage> getWelcomeMessage() {
+	public Collection<WelcomeMessage> getWelcomeMessage() {
 		return this.welcomeMessage;
 	}
 
-	public void setWelcomeMessage(final List<WelcomeMessage> welcomeMessage) {
+	public void setWelcomeMessage(final Collection<WelcomeMessage> welcomeMessage) {
 		this.welcomeMessage = welcomeMessage;
 	}
 

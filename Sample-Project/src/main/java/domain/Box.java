@@ -1,12 +1,15 @@
 
 package domain;
 
+import java.util.Collection;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Box {
 
-	private String	name;
-	private Boolean	predefined;
+	private String				name;
+	private Boolean				predefined;
+	private Collection<Message>	messages;
 
 
 	@NotBlank
@@ -24,6 +27,14 @@ public class Box {
 
 	public void setPredefined(final Boolean predefined) {
 		this.predefined = predefined;
+	}
+
+	public Collection<Message> getMessages() {
+		return this.messages;
+	}
+
+	public void setMessages(final Collection<Message> messages) {
+		this.messages = messages;
 	}
 
 }
