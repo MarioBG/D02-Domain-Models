@@ -8,7 +8,7 @@ import javax.validation.constraints.Past;
 import org.apache.log4j.Priority;
 import org.hibernate.validator.constraints.NotBlank;
 
-public class Message {
+public class Message extends DomainEntity {
 
 	private Date		moment;
 	private String		subject;

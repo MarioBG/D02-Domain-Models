@@ -3,15 +3,15 @@ package domain;
 
 public class Comment extends DomainEntity {
 
-	private String	content;
+	private String	coment;
 
 
-	public String getContent() {
-		return this.content;
+	public String getComent() {
+		return this.coment;
 	}
 
-	public void setContent(final String content) {
-		this.content = content;
+	public void setComent(final String coment) {
+		this.coment = coment;
 	}
 
 }
