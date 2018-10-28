@@ -1,6 +1,10 @@
 
 package domain;
 
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 public class Authority extends DomainEntity {
 
 	private String	governmentAgent;
@@ -41,4 +45,20 @@ public class Authority extends DomainEntity {
 		this.authority = authority;
 	}
 
+
+	// Relationships ----------------------------------------------------------
+
+	private UserAccount	userAccount;
+
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public UserAccount getUserAccount() {
+		return this.userAccount;
+	}
+
+	public void setUserAccount(final UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
 }

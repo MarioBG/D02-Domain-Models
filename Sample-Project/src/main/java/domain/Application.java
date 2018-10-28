@@ -1,21 +1,24 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 public class Application extends DomainEntity {
 
-	private Date				applicationMoment;
-	private String				status;
-	private float				offeredPrice;
-	private Collection<Comment>	comment;
-	private WorkPlan			workPlan;
-	private CreditCard			creditCard;
+	private Date	applicationMoment;
+	private String	status;
+	private float	offeredPrice;
+	private String	comment;
 
 
+	@Past
 	public Date getApplicationMoment() {
 		return this.applicationMoment;
 	}
@@ -33,6 +36,7 @@ public class Application extends DomainEntity {
 		this.status = status;
 	}
 
+	@Digits(fraction = 2, integer = 6)
 	public float getOfferedPrice() {
 		return this.offeredPrice;
 	}
@@ -41,20 +45,39 @@ public class Application extends DomainEntity {
 		this.offeredPrice = offeredPrice;
 	}
 
-	public Collection<Comment> getComment() {
+	public String getComment() {
 		return this.comment;
 	}
 
-	public void setComment(final Collection<Comment> comment) {
+	public void setComment(final String comment) {
 		this.comment = comment;
 	}
 
-	public WorkPlan getWorkPlan() {
-		return this.workPlan;
+
+	// Relationships ----------------------------------------------------------
+
+	private HandyWorker	handyWorker;
+	private FixUpTask	fixUpTask;
+	private CreditCard	creditCard;
+
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public HandyWorker getHandyWorker() {
+		return this.handyWorker;
 	}
 
-	public void setWorkPlan(final WorkPlan workPlan) {
-		this.workPlan = workPlan;
+	public void setHandyWorker(final HandyWorker handyWorker) {
+		this.handyWorker = handyWorker;
+	}
+
+	public FixUpTask getFixUpTask() {
+		return this.fixUpTask;
+	}
+
+	public void setFixUpTask(final FixUpTask fixUpTask) {
+		this.fixUpTask = fixUpTask;
 	}
 
 	public CreditCard getCreditCard() {

@@ -3,20 +3,23 @@ package domain;
 
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
 public class FixUpTask extends DomainEntity {
 
-	private String		ticker;
-	private Date		publicationMoment;
-	private String		description;
-	private String		address;
-	private float		maxPrice;
-	private Double		maxTimeToCarryOut;
-	private Category	category;
-	private Warranty	warranty;
+	private String	ticker;
+	private Date	publicationMoment;
+	private String	description;
+	private String	address;
+	private float	maxPrice;
+	private Date	startDate;
+	private Date	endDate;
 
 
 	@NotBlank
@@ -55,6 +58,7 @@ public class FixUpTask extends DomainEntity {
 		this.address = address;
 	}
 
+	@Digits(fraction = 2, integer = 6)
 	public float getMaxPrice() {
 		return this.maxPrice;
 	}
@@ -63,12 +67,39 @@ public class FixUpTask extends DomainEntity {
 		this.maxPrice = maxPrice;
 	}
 
-	public Double getMaxTimeToCarryOut() {
-		return this.maxTimeToCarryOut;
+	public Date getStartDate() {
+		return this.startDate;
 	}
 
-	public void setMaxTimeToCarryOut(final Double maxTimeToCarryOut) {
-		this.maxTimeToCarryOut = maxTimeToCarryOut;
+	public void setStartDate(final Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return this.endDate;
+	}
+
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Customer	customer;
+	private Category	category;
+	private Warranty	warranty;
+
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Customer getCustomer() {
+		return this.customer;
+	}
+
+	public void setCustomer(final Customer customer) {
+		this.customer = customer;
 	}
 
 	public Category getCategory() {

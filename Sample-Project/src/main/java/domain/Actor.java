@@ -1,23 +1,26 @@
 
 package domain;
 
-import java.util.Collection;
-
+import javax.persistence.Entity;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 
-public class Actor extends DomainEntity {
+import security.UserAccount;
 
-	private String						name;
-	private String						middleName;
-	private String						surname;
-	private String						email;
-	private String						photo;
-	private String						phoneNumber;
-	private String						address;
-	private Collection<SocialIdentity>	socialIdentity;
-	private Collection<Box>				boxes;
+@Entity
+public abstract class Actor extends DomainEntity {
+
+	private String	name;
+	private String	middleName;
+	private String	surname;
+	private String	email;
+	private String	photo;
+	private String	phoneNumber;
+	private String	address;
 
 
 	@NotBlank
@@ -55,6 +58,7 @@ public class Actor extends DomainEntity {
 		this.email = email;
 	}
 
+	@URL
 	public String getPhoto() {
 		return this.photo;
 	}
@@ -71,6 +75,7 @@ public class Actor extends DomainEntity {
 		this.phoneNumber = phoneNumber;
 	}
 
+	@NotBlank
 	public String getAddress() {
 		return this.address;
 	}
@@ -79,20 +84,20 @@ public class Actor extends DomainEntity {
 		this.address = address;
 	}
 
-	public Collection<SocialIdentity> getSocialIdentity() {
-		return this.socialIdentity;
+
+	// Relationships ----------------------------------------------------------
+
+	private UserAccount	userAccount;
+
+
+	@NotNull
+	@Valid
+	public UserAccount getUserAccount() {
+		return this.userAccount;
 	}
 
-	public void setSocialIdentity(final Collection<SocialIdentity> socialIdentity) {
-		this.socialIdentity = socialIdentity;
-	}
-
-	public Collection<Box> getBoxes() {
-		return this.boxes;
-	}
-
-	public void setBoxes(final Collection<Box> boxes) {
-		this.boxes = boxes;
+	public void setUserAccount(final UserAccount userAccount) {
+		this.userAccount = userAccount;
 	}
 
 }

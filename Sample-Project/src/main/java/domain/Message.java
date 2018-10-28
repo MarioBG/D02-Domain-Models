@@ -3,7 +3,11 @@ package domain;
 
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.apache.log4j.Priority;
 import org.hibernate.validator.constraints.NotBlank;
@@ -43,12 +47,54 @@ public class Message extends DomainEntity {
 		this.body = body;
 	}
 
+	@Pattern(regexp = "^NEUTRAL|HIGH|LOW$")
 	public Priority getPriority() {
 		return this.priority;
 	}
 
 	public void setPriority(final Priority priority) {
 		this.priority = priority;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Actor	recipient;
+	private Actor	sender;
+	private Box		box;
+
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Actor getRecipient() {
+		return this.recipient;
+	}
+
+	public void setRecipient(final Actor recipient) {
+		this.recipient = recipient;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Actor getSender() {
+		return this.sender;
+	}
+
+	public void setSender(final Actor sender) {
+		this.sender = sender;
+	}
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	public Box getBox() {
+		return this.box;
+	}
+
+	public void setBox(final Box box) {
+		this.box = box;
 	}
 
 }
