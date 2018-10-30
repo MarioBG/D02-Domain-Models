@@ -1,10 +1,6 @@
 
 package domain;
 
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
@@ -42,20 +38,4 @@ public class SocialIdentity extends DomainEntity {
 		this.profileLink = profileLink;
 	}
 
-
-	// Relationships ----------------------------------------------------------
-
-	private Actor	actor;
-
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public Actor getActor() {
-		return this.actor;
-	}
-
-	public void setActor(final Actor actor) {
-		this.actor = actor;
-	}
 }

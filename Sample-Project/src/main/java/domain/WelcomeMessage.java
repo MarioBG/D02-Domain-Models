@@ -1,10 +1,6 @@
 
 package domain;
 
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 public class WelcomeMessage extends DomainEntity {
@@ -31,20 +27,4 @@ public class WelcomeMessage extends DomainEntity {
 		this.content = content;
 	}
 
-
-	// Relationships ----------------------------------------------------------
-
-	private Configuration	configuration;
-
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public Configuration getConfiguration() {
-		return this.configuration;
-	}
-
-	public void setConfiguration(final Configuration configuration) {
-		this.configuration = configuration;
-	}
 }
