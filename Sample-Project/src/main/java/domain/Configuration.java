@@ -3,23 +3,24 @@ package domain;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
 public class Configuration extends DomainEntity {
 
-	private String						bannerURL;
-	private Collection<String>			spamWords;
-	private double						VATTax;
-	private String						countryCode;
-	private Double						finderCached;
-	private Integer						finderReturn;
-	private String						systemName;
-	private Collection<String>			defaultCreditCards;
-	private Collection<WelcomeMessage>	welcomeMessage;
+	private String				bannerURL;
+	private Collection<String>	spamWords;
+	private double				VATTax;
+	private String				countryCode;
+	private Double				finderCached;
+	private Integer				finderReturn;
+	private String				systemName;
+	private Collection<String>	defaultCreditCards;
 
 
 	@URL
@@ -91,6 +92,13 @@ public class Configuration extends DomainEntity {
 		this.defaultCreditCards = defaultCreditCards;
 	}
 
+
+	// Relationships ----------------------------------------------------------
+
+	private Collection<WelcomeMessage>	welcomeMessage;
+
+
+	@Valid
 	public Collection<WelcomeMessage> getWelcomeMessage() {
 		return this.welcomeMessage;
 	}

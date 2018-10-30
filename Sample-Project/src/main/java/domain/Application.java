@@ -10,12 +10,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Application extends DomainEntity {
 
-	private Date	applicationMoment;
-	private String	status;
-	private float	offeredPrice;
-	private String	comment;
+	private Date		applicationMoment;
+	private String		status;
+	private float		offeredPrice;
+	private String		comment;
+	private CreditCard	creditCard;
 
 
 	@Past
@@ -45,6 +48,7 @@ public class Application extends DomainEntity {
 		this.offeredPrice = offeredPrice;
 	}
 
+	@NotBlank
 	public String getComment() {
 		return this.comment;
 	}
@@ -53,39 +57,30 @@ public class Application extends DomainEntity {
 		this.comment = comment;
 	}
 
-
-	// Relationships ----------------------------------------------------------
-
-	private HandyWorker	handyWorker;
-	private FixUpTask	fixUpTask;
-	private CreditCard	creditCard;
-
-
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
-	public HandyWorker getHandyWorker() {
-		return this.handyWorker;
-	}
-
-	public void setHandyWorker(final HandyWorker handyWorker) {
-		this.handyWorker = handyWorker;
-	}
-
-	public FixUpTask getFixUpTask() {
-		return this.fixUpTask;
-	}
-
-	public void setFixUpTask(final FixUpTask fixUpTask) {
-		this.fixUpTask = fixUpTask;
-	}
-
 	public CreditCard getCreditCard() {
 		return this.creditCard;
 	}
 
 	public void setCreditCard(final CreditCard creditCard) {
 		this.creditCard = creditCard;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private FixUpTask	fixUpTask;
+
+
+	@Valid
+	@ManyToOne(optional = true)
+	public FixUpTask getFixUpTask() {
+		return this.fixUpTask;
+	}
+
+	public void setFixUpTask(final FixUpTask fixUpTask) {
+		this.fixUpTask = fixUpTask;
 	}
 
 }

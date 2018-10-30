@@ -3,10 +3,6 @@ package domain;
 
 import java.util.Date;
 
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 public class Phase extends DomainEntity {
 
 	private String	title;
@@ -47,20 +43,4 @@ public class Phase extends DomainEntity {
 		this.endMoment = endMoment;
 	}
 
-
-	// Relationships ----------------------------------------------------------
-
-	private FixUpTask	fixUpTask;
-
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	public FixUpTask getFixUpTask() {
-		return this.fixUpTask;
-	}
-
-	public void setFixUpTask(final FixUpTask fixUpTask) {
-		this.fixUpTask = fixUpTask;
-	}
 }

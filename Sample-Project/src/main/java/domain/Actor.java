@@ -1,6 +1,8 @@
 
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -49,7 +51,7 @@ public abstract class Actor extends DomainEntity {
 		this.surname = surname;
 	}
 
-	@Pattern(regexp = "[a-A-Z0-9]+@[a-zA-Z09.]*|[a-zA-Z0-9]+<[a-zA-Z0-9]+@[a-zA-Z0-9.]*>")
+	@Pattern(regexp = "^[a-A-Z0-9]+@[a-zA-Z09.]*|[a-zA-Z0-9]+<[a-zA-Z0-9]+@[a-zA-Z0-9.]*>$")
 	public String getEmail() {
 		return this.email;
 	}
@@ -87,17 +89,37 @@ public abstract class Actor extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private UserAccount	userAccount;
+	private UserAccount					userAccount;
+	private Collection<SocialIdentity>	socialIdentity;
+	private Collection<Box>				box;
 
 
-	@NotNull
 	@Valid
+	@NotNull
 	public UserAccount getUserAccount() {
 		return this.userAccount;
 	}
 
 	public void setUserAccount(final UserAccount userAccount) {
 		this.userAccount = userAccount;
+	}
+
+	@Valid
+	public Collection<SocialIdentity> getSocialIdentity() {
+		return this.socialIdentity;
+	}
+
+	public void setSocialIdentity(final Collection<SocialIdentity> socialIdentity) {
+		this.socialIdentity = socialIdentity;
+	}
+
+	@Valid
+	public Collection<Box> getBox() {
+		return this.box;
+	}
+
+	public void setBox(final Collection<Box> box) {
+		this.box = box;
 	}
 
 }

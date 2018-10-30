@@ -1,6 +1,10 @@
 
 package domain;
 
+import java.util.Collection;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -29,6 +33,22 @@ public class UserAccount extends DomainEntity {
 
 	public void setPassword(final String password) {
 		this.password = password;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Collection<Authority>	authority;
+
+
+	@NotNull
+	@Valid
+	public Collection<Authority> getAuthority() {
+		return this.authority;
+	}
+
+	public void setAuthority(final Collection<Authority> authority) {
+		this.authority = authority;
 	}
 
 }

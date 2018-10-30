@@ -1,12 +1,13 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -23,7 +24,7 @@ public class FixUpTask extends DomainEntity {
 
 
 	@NotBlank
-	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}")
+	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -32,6 +33,7 @@ public class FixUpTask extends DomainEntity {
 		this.ticker = ticker;
 	}
 
+	@Past
 	public Date getPublicationMoment() {
 		return this.publicationMoment;
 	}
@@ -86,22 +88,13 @@ public class FixUpTask extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Customer	customer;
-	private Category	category;
-	private Warranty	warranty;
+	private Collection<Application>	application;
+	private Category				category;
+	private Warranty				warranty;
+	private Collection<Phase>		phase;
 
 
-	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
-	public Customer getCustomer() {
-		return this.customer;
-	}
-
-	public void setCustomer(final Customer customer) {
-		this.customer = customer;
-	}
-
 	public Category getCategory() {
 		return this.category;
 	}
@@ -110,12 +103,32 @@ public class FixUpTask extends DomainEntity {
 		this.category = category;
 	}
 
+	@NotNull
+	@Valid
 	public Warranty getWarranty() {
 		return this.warranty;
 	}
 
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
+	}
+
+	@Valid
+	public Collection<Application> getApplication() {
+		return this.application;
+	}
+
+	public void setApplication(final Collection<Application> application) {
+		this.application = application;
+	}
+
+	@Valid
+	public Collection<Phase> getPhase() {
+		return this.phase;
+	}
+
+	public void setPhase(final Collection<Phase> phase) {
+		this.phase = phase;
 	}
 
 }

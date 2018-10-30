@@ -3,6 +3,8 @@ package domain;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Box extends DomainEntity {
@@ -35,6 +37,31 @@ public class Box extends DomainEntity {
 
 	public void setMessages(final Collection<Message> messages) {
 		this.messages = messages;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Collection<Message>	message;
+	private Collection<Box>		children;
+
+
+	@Valid
+	public Collection<Message> getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(final Collection<Message> message) {
+		this.message = message;
+	}
+
+	@Valid
+	public Collection<Box> getChildren() {
+		return this.children;
+	}
+
+	public void setChildren(final Collection<Box> children) {
+		this.children = children;
 	}
 
 }
