@@ -1,7 +1,6 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -33,26 +32,26 @@ public class Endorsement extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Customer>	customers;
-	private Collection<HandyWorker>	handyWorkers;
+	private Customer	customer;
+	private HandyWorker	handyWorker;
 
 
 	@Valid
-	public Collection<Customer> getCustomers() {
-		return this.customers;
+	public Customer getCustomer() {
+		return this.customer;
 	}
 
-	public void setCustomers(final Collection<Customer> customers) {
-		this.customers = customers;
+	public void setCustomer(final Customer customer) {
+		this.customer = customer;
 	}
 
 	@Valid
-	public Collection<HandyWorker> getHandyWorkers() {
-		return this.handyWorkers;
+	public HandyWorker getHandyWorker() {
+		return this.handyWorker;
 	}
 
-	public void setHandyWorkers(final Collection<HandyWorker> handyWorkers) {
-		this.handyWorkers = handyWorkers;
+	public void setHandyWorker(final HandyWorker handyWorker) {
+		this.handyWorker = handyWorker;
 	}
 
 }

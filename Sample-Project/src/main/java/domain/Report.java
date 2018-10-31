@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 
 public class Report extends DomainEntity {
 
@@ -34,6 +35,7 @@ public class Report extends DomainEntity {
 		this.description = description;
 	}
 
+	@URL
 	public Collection<String> getAttachment() {
 		return this.attachment;
 	}

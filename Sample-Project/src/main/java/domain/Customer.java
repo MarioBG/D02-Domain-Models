@@ -4,6 +4,7 @@ package domain;
 import java.util.Collection;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 public class Customer extends Actor {
 
@@ -14,6 +15,7 @@ public class Customer extends Actor {
 
 
 	@Valid
+	@NotNull
 	public Collection<FixUpTask> getFixUpTask() {
 		return this.fixUpTask;
 	}
@@ -23,6 +25,7 @@ public class Customer extends Actor {
 	}
 
 	@Valid
+	@NotNull
 	public Collection<Endorsement> getEndorsements() {
 		return this.endorsements;
 	}
