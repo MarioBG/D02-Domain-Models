@@ -14,7 +14,7 @@ public class Report extends DomainEntity {
 
 	private Date				moment;
 	private String				description;
-	private Collection<String>	attachment;
+	private Collection<String>	attachments;
 
 
 	@Past
@@ -36,37 +36,37 @@ public class Report extends DomainEntity {
 	}
 
 	@URL
-	public Collection<String> getAttachment() {
-		return this.attachment;
+	public Collection<String> getAttachments() {
+		return this.attachments;
 	}
 
-	public void setAttachment(final Collection<String> attachment) {
-		this.attachment = attachment;
+	public void setAttachments(final Collection<String> attachment) {
+		this.attachments = attachment;
 	}
 
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Complaint>	complaint;
-	private Collection<Note>		note;
+	private Collection<Complaint>	complaints;
+	private Collection<Note>		notes;
 
 
 	@Valid
-	public Collection<Complaint> getComplaint() {
-		return this.complaint;
+	public Collection<Complaint> getComplaints() {
+		return this.complaints;
 	}
 
-	public void setComplaint(final Collection<Complaint> complaint) {
-		this.complaint = complaint;
+	public void setComplaints(final Collection<Complaint> complaint) {
+		this.complaints = complaint;
 	}
 
 	@Valid
-	public Collection<Note> getNote() {
-		return this.note;
+	public Collection<Note> getNotes() {
+		return this.notes;
 	}
 
-	public void setNote(final Collection<Note> note) {
-		this.note = note;
+	public void setNotes(final Collection<Note> note) {
+		this.notes = note;
 	}
 
 }

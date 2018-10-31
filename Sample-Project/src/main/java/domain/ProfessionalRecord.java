@@ -4,6 +4,7 @@ package domain;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -29,6 +30,7 @@ public class ProfessionalRecord extends DomainEntity {
 	}
 
 	@Past
+	@NotNull
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -54,11 +56,11 @@ public class ProfessionalRecord extends DomainEntity {
 		this.playedRole = playedRole;
 	}
 
-	public Collection<String> getComment() {
+	public Collection<String> getComments() {
 		return this.comment;
 	}
 
-	public void setComment(final Collection<String> comment) {
+	public void setComments(final Collection<String> comment) {
 		this.comment = comment;
 	}
 

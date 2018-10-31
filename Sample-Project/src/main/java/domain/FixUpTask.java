@@ -88,7 +88,7 @@ public class FixUpTask extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Application>	application;
+	private Collection<Application>	applications;
 	private Category				category;
 	private Warranty				warranty;
 	private Collection<Phase>		phase;
@@ -114,12 +114,12 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@Valid
-	public Collection<Application> getApplication() {
-		return this.application;
+	public Collection<Application> getApplications() {
+		return this.applications;
 	}
 
-	public void setApplication(final Collection<Application> application) {
-		this.application = application;
+	public void setApplications(final Collection<Application> applications) {
+		this.applications = applications;
 	}
 
 	@Valid

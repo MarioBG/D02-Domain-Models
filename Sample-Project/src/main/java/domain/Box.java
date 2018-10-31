@@ -9,9 +9,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class Box extends DomainEntity {
 
-	private String				name;
-	private Boolean				predefined;
-	private Collection<Message>	messages;
+	private String	name;
+	private Boolean	predefined;
 
 
 	@NotBlank
@@ -31,28 +30,20 @@ public class Box extends DomainEntity {
 		this.predefined = predefined;
 	}
 
+
+	// Relationships ----------------------------------------------------------
+
+	private Collection<Message>	messages;
+	private Collection<Box>		children;
+
+
+	@Valid
 	public Collection<Message> getMessages() {
 		return this.messages;
 	}
 
 	public void setMessages(final Collection<Message> messages) {
 		this.messages = messages;
-	}
-
-
-	// Relationships ----------------------------------------------------------
-
-	private Collection<Message>	message;
-	private Collection<Box>		children;
-
-
-	@Valid
-	public Collection<Message> getMessage() {
-		return this.message;
-	}
-
-	public void setMessage(final Collection<Message> message) {
-		this.message = message;
 	}
 
 	@Valid

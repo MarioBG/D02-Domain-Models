@@ -60,19 +60,19 @@ public class Message extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Actor>	recipient;
+	private Collection<Actor>	recipients;
 	private Actor				sender;
 	private Box					box;
 
 
 	@NotNull
 	@Valid
-	public Collection<Actor> getRecipient() {
-		return this.recipient;
+	public Collection<Actor> getRecipients() {
+		return this.recipients;
 	}
 
-	public void setRecipient(final Collection<Actor> recipient) {
-		this.recipient = recipient;
+	public void setRecipients(final Collection<Actor> recipients) {
+		this.recipients = recipients;
 	}
 
 	@NotNull

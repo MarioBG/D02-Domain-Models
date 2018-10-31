@@ -2,6 +2,9 @@
 package domain;
 
 import java.sql.Date;
+import java.util.Collection;
+
+import javax.validation.Valid;
 
 public class Finder extends DomainEntity {
 
@@ -77,6 +80,21 @@ public class Finder extends DomainEntity {
 
 	public void setCategory(final Category category) {
 		this.category = category;
+	}
+
+
+	// --------------------------------------- RELATIONSHIPS
+
+	private Collection<FixUpTask>	fixUpTasks;
+
+
+	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
+		this.fixUpTasks = fixUpTasks;
+	}
+
+	@Valid
+	public Collection<FixUpTask> getFixUpTasks() {
+		return this.fixUpTasks;
 	}
 
 }

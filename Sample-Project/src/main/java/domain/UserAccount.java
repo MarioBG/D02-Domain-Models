@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import security.Authority;
+
 public class UserAccount extends DomainEntity {
 
 	private String	username;

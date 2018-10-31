@@ -13,7 +13,7 @@ public class EndorserRecord extends DomainEntity {
 	private String				email;
 	private String				forNumber;
 	private String				linkedInProfileURL;
-	private Collection<String>	comment;
+	private Collection<String>	comments;
 
 
 	@NotBlank
@@ -52,12 +52,12 @@ public class EndorserRecord extends DomainEntity {
 		this.linkedInProfileURL = linkedInProfileURL;
 	}
 
-	public Collection<String> getComment() {
-		return this.comment;
+	public Collection<String> getComments() {
+		return this.comments;
 	}
 
-	public void setComment(final Collection<String> comment) {
-		this.comment = comment;
+	public void setComments(final Collection<String> comments) {
+		this.comments = comments;
 	}
 
 }

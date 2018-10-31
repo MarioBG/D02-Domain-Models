@@ -10,18 +10,18 @@ public class Customer extends Actor {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<FixUpTask>	fixUpTask;
+	private Collection<FixUpTask>	fixUpTasks;
 	private Collection<Endorsement>	endorsements;
 
 
 	@Valid
 	@NotNull
-	public Collection<FixUpTask> getFixUpTask() {
-		return this.fixUpTask;
+	public Collection<FixUpTask> getFixUpTasks() {
+		return this.fixUpTasks;
 	}
 
-	public void setFixUpTask(final Collection<FixUpTask> fixUpTask) {
-		this.fixUpTask = fixUpTask;
+	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
+		this.fixUpTasks = fixUpTasks;
 	}
 
 	@Valid

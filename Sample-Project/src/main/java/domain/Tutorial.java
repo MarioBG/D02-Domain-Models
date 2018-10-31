@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
@@ -57,15 +58,15 @@ public class Tutorial extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Section>	sections;
+	private List<Section>	sections;
 
 
 	@Valid
-	public Collection<Section> getSections() {
+	public List<Section> getSections() {
 		return this.sections;
 	}
 
-	public void setSections(final Collection<Section> sections) {
+	public void setSections(final List<Section> sections) {
 		this.sections = sections;
 	}
 

@@ -24,16 +24,16 @@ public class Category extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<Category>	childCategory;
+	private Collection<Category>	childCategories;
 
 
 	@Valid
-	public Collection<Category> getChildCategory() {
-		return this.childCategory;
+	public Collection<Category> getChildCategories() {
+		return this.childCategories;
 	}
 
-	public void setChildCategory(final Collection<Category> childCategory) {
-		this.childCategory = childCategory;
+	public void setChildCategories(final Collection<Category> childCategories) {
+		this.childCategories = childCategories;
 	}
 
 }

@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.URL;
 public class MiscellaneousRecord extends DomainEntity {
 
 	private String				title;
-	private Collection<String>	comment;
+	private Collection<String>	comments;
 	private String				attachmentURL;
 
 
@@ -22,12 +22,12 @@ public class MiscellaneousRecord extends DomainEntity {
 		this.title = title;
 	}
 
-	public Collection<String> getComment() {
-		return this.comment;
+	public Collection<String> getComments() {
+		return this.comments;
 	}
 
-	public void setComment(final Collection<String> comment) {
-		this.comment = comment;
+	public void setComments(final Collection<String> comments) {
+		this.comments = comments;
 	}
 
 	@URL
