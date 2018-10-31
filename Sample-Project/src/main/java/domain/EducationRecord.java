@@ -2,6 +2,7 @@
 package domain;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import javax.validation.constraints.Past;
 
@@ -10,12 +11,12 @@ import org.hibernate.validator.constraints.URL;
 
 public class EducationRecord extends DomainEntity {
 
-	private String	diplomaTitle;
-	private String	institutionName;
-	private String	comments;
-	private Date	startDate;
-	private Date	endDate;
-	private String	attachmentURL;
+	private String				diplomaTitle;
+	private String				institutionName;
+	private Collection<String>	comments;
+	private Date				startDate;
+	private Date				endDate;
+	private String				attachmentURL;
 
 
 	@NotBlank
@@ -36,11 +37,11 @@ public class EducationRecord extends DomainEntity {
 		this.institutionName = institutionName;
 	}
 
-	public String getComment() {
+	public Collection<String> getComment() {
 		return this.comments;
 	}
 
-	public void setComment(final String comment) {
+	public void setComment(final Collection<String> comment) {
 		this.comments = comment;
 	}
 

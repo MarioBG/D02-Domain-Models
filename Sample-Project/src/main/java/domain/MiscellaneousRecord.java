@@ -1,14 +1,16 @@
 
 package domain;
 
+import java.util.Collection;
+
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
 public class MiscellaneousRecord extends DomainEntity {
 
-	private String	title;
-	private String	comment;
-	private String	attachmentURL;
+	private String				title;
+	private Collection<String>	comment;
+	private String				attachmentURL;
 
 
 	@NotBlank
@@ -20,11 +22,11 @@ public class MiscellaneousRecord extends DomainEntity {
 		this.title = title;
 	}
 
-	public String getComment() {
+	public Collection<String> getComment() {
 		return this.comment;
 	}
 
-	public void setComment(final String comment) {
+	public void setComment(final Collection<String> comment) {
 		this.comment = comment;
 	}
 

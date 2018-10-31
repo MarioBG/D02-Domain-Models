@@ -8,13 +8,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 
 public class Report extends DomainEntity {
 
-	private Date	moment;
-	private String	description;
-	private String	attachment;
+	private Date				moment;
+	private String				description;
+	private Collection<String>	attachment;
 
 
 	@Past
@@ -35,12 +34,11 @@ public class Report extends DomainEntity {
 		this.description = description;
 	}
 
-	@URL
-	public String getAttachment() {
+	public Collection<String> getAttachment() {
 		return this.attachment;
 	}
 
-	public void setAttachment(final String attachment) {
+	public void setAttachment(final Collection<String> attachment) {
 		this.attachment = attachment;
 	}
 
@@ -60,6 +58,7 @@ public class Report extends DomainEntity {
 		this.complaint = complaint;
 	}
 
+	@Valid
 	public Collection<Note> getNote() {
 		return this.note;
 	}

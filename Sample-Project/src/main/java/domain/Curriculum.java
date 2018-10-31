@@ -12,7 +12,7 @@ public class Curriculum extends DomainEntity {
 	private String	ticker;
 
 
-	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}")
+	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -41,6 +41,7 @@ public class Curriculum extends DomainEntity {
 		this.personalRecord = personalRecord;
 	};
 
+	@Valid
 	public Collection<MiscellaneousRecord> getMiscellaneousRecord() {
 		return this.miscellaneousRecord;
 	}
@@ -49,6 +50,7 @@ public class Curriculum extends DomainEntity {
 		this.miscellaneousRecord = miscellaneousRecord;
 	}
 
+	@Valid
 	public Collection<EndorserRecord> getEndorserRecord() {
 		return this.endorserRecord;
 	}
@@ -57,6 +59,7 @@ public class Curriculum extends DomainEntity {
 		this.endorserRecord = endorserRecord;
 	}
 
+	@Valid
 	public Collection<EducationRecord> getEducationRecord() {
 		return this.educationRecord;
 	}
@@ -65,6 +68,7 @@ public class Curriculum extends DomainEntity {
 		this.educationRecord = educationRecord;
 	}
 
+	@Valid
 	public Collection<ProfessionalRecord> getProfessionalRecord() {
 		return this.professionalRecord;
 	}
